@@ -38,19 +38,37 @@ const User = db.define('User',
 
 })
 
-const dataAll = db.define('Khoaluan5', {
-  race_id: 
+const Data = db.define('Khoaluan6',
+{
+
+    cbgv: sequelize.STRING,
+    holot: sequelize.STRING,
+    ten: sequelize.STRING,
+    hocky: sequelize.STRING,
+    mahp: sequelize.STRING,
+    tenhp: sequelize.STRING,
+    sotc: sequelize.STRING,
+    lythuyet: sequelize.STRING,
+    thuchanh: sequelize.STRING,
+    nhom: sequelize.STRING,
+    sototh: sequelize.STRING,
+    sosv: sequelize.STRING,
+    sotiec: sequelize.STRING,
+    bomon: sequelize.STRING,
+    khoa: sequelize.STRING,
+    stt: {
+      type: sequelize.STRING,
+      primaryKey: true,
+      unique: true,
+      allowNull: false,
+      autoIncrement: true
+    }
+  }, 
   {
-   type: Sequelize.STRING,
-   allowNull: false,
-   primaryKey: true
-   },
-  race_name:
-  {
-   type: Sequelize.STRING,
-   allowNull: false
-  }
-});
+    freezeTableName: true
+
+})
+
 db.sync({force: true})
 
 module.exports = db.models
