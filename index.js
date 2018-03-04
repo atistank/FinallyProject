@@ -28,6 +28,13 @@ app.get('/user',(req,res)=> {
 
 })
 
+app.get('/data',(req,res)=> {
+    models.dataAll.findAll()
+    .then(dataAll => res.json({ketqua: 1, data: dataAll}))
+    .catch(() => res.json({ketqua: 0}))
+
+})
+
 // them user
 app.post('/add_user',(req,res)=> {
 let {username,email,password,avatar,cover,quyenhan,trangthai,like} = req.body

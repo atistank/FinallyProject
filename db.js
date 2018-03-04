@@ -37,6 +37,20 @@ const User = db.define('User',
     freezeTableName: true
 
 })
+
+const dataAll = db.define('Khoaluan5', {
+  race_id: 
+  {
+   type: Sequelize.STRING,
+   allowNull: false,
+   primaryKey: true
+   },
+  race_name:
+  {
+   type: Sequelize.STRING,
+   allowNull: false
+  }
+});
 db.sync({force: true})
 
 module.exports = db.models
