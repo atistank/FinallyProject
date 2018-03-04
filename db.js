@@ -38,9 +38,8 @@ const User = db.define('User',
 
 })
 
-const Data = db.define('Khoaluan6',
+const Data = db.define('Khoaluan5',
 {
-
     cbgv: sequelize.STRING,
     holot: sequelize.STRING,
     ten: sequelize.STRING,
