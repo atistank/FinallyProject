@@ -41,35 +41,35 @@ const User = db.define('UserData',
 
 })
 
-const Data = db.define('Khoaluan4',
-{
-   stt: {
-      type: sequelize.INTEGER,
-      primaryKey: true,
-      unique: true,
-      allowNull: false
-    },
-    cbgv: sequelize.STRING,
-    holot: sequelize.STRING,
-    ten: sequelize.STRING,
-    hocky: sequelize.STRING,
-    mahp: sequelize.STRING,
-    tenhp: sequelize.STRING,
-    sotc: sequelize.STRING,
-    lythuyet: sequelize.STRING,
-    thuchanh: sequelize.STRING,
-    nhom: sequelize.STRING,
-    sototh: sequelize.STRING,
-    sosv: sequelize.STRING,
-    sotiec: sequelize.STRING,
-    bomon: sequelize.STRING,
-    khoa: sequelize.STRING
+// const Data = db.define('Khoaluan4',
+// {
+//    stt: {
+//       type: sequelize.INTEGER,
+//       primaryKey: true,
+//       unique: true,
+//       allowNull: false
+//     },
+//     cbgv: sequelize.STRING,
+//     holot: sequelize.STRING,
+//     ten: sequelize.STRING,
+//     hocky: sequelize.STRING,
+//     mahp: sequelize.STRING,
+//     tenhp: sequelize.STRING,
+//     sotc: sequelize.STRING,
+//     lythuyet: sequelize.STRING,
+//     thuchanh: sequelize.STRING,
+//     nhom: sequelize.STRING,
+//     sototh: sequelize.STRING,
+//     sosv: sequelize.STRING,
+//     sotiec: sequelize.STRING,
+//     bomon: sequelize.STRING,
+//     khoa: sequelize.STRING
    
-  }, 
-  {
-    freezeTableName: true
+//   }, 
+//   {
+//     freezeTableName: true
 
-})
+// })
 
 db.sync({force: true})
 
