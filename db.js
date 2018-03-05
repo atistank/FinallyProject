@@ -15,7 +15,7 @@ db.authenticate()
   .then( function(){ console.log( 'ket noi thanh cong' )})
   .catch(err => console.log( err.message) )
 // dinh nghia table
-const User = db.define('User',
+const User = db.define('UserLog',
 {
     username: sequelize.STRING,
     email: sequelize.STRING,
