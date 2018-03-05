@@ -73,4 +73,4 @@ const User = db.define('UserData',
 
 db.sync({force: true})
 
-module.exports = db.models
+module.exports = User

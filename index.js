@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const models = require('./db.js')
+const User = require('./db.js')
 
 app.use(bodyParser.urlencoded({extended: true}))
 // cau hinh root
@@ -22,7 +22,7 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
 // read
 app.get('/user2',(req,res)=> {
-    models.User.findAll()
+    User.findAll()
     .then(users => res.json({ketqua: 1, data: users}))
     .catch(() => res.json({ketqua: 0}))
 
