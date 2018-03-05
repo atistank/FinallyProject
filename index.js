@@ -41,7 +41,7 @@ app.get('/data',(req,res)=> {
 // them user
 app.post('/add_user',(req,res)=> {
 let {username,email,password,avatar,cover,quyenhan,trangthai,like} = req.body
-models.User.create({
+User.create({
      username,
      email,
      password,
@@ -62,7 +62,7 @@ models.User.create({
 // cap nhat user
 app.post('/update_user',(req,res)=>{
 let {userid,username,email,password,avatar,cover,quyenhan,trangthai,like} = req.body
-   models.User.update({
+   User.update({
             username,
             email,
             password,
@@ -84,7 +84,7 @@ let {userid,username,email,password,avatar,cover,quyenhan,trangthai,like} = req.
 
 app.post('/delete',(req,res)=>{
     let {id} = req.body
-     models.User.destroy({
+     User.destroy({
         where: {userid: id}
     })
     .then( row => res.json( {ketqua: 1, rowsCount: row}) )
