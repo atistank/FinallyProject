@@ -38,14 +38,13 @@ const User = db.define('UserData',
 
 })
 
-const Data = db.define('DatabaseKhoaLuan',
+const Data = db.define('Khoaluan4',
 {
    stt: {
       type: sequelize.INTEGER,
       primaryKey: true,
       unique: true,
-      allowNull: false,
-      autoIncrement: true
+      allowNull: false
     },
     cbgv: sequelize.STRING,
     holot: sequelize.STRING,
