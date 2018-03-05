@@ -73,4 +73,7 @@ const User = db.define('UserData',
 
 db.sync({force: true})
 
-module.exports = User
+module.exports = {
+  User,
+  ABdhjh
+}

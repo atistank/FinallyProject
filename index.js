@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const User = require('./db.js')
+const User, Data  = require('./db.js')
 
 app.use(bodyParser.urlencoded({extended: true}))
 // cau hinh root
