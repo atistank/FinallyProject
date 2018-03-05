@@ -1,4 +1,6 @@
 const sequelize = require('sequelize')
+const pg = require('pg');
+pg.defaults.ssl = true;
 
 const db = new sequelize({
 
@@ -7,7 +9,8 @@ const db = new sequelize({
     password: "2200dd5691094abe8dc7faed9b50c4713756e8a57a93036433c401e0a61f62a0",
     host: "ec2-107-21-236-219.compute-1.amazonaws.com",
     port: 5432,
-    dialect: 'postgres'
+    dialect: 'postgres',
+    ssl: true
 })
 
 // ham kiem tra test ket noi
