@@ -40,6 +40,13 @@ const User = db.define('UserLog',
 
 const Data = db.define('Khoaluan5',
 {
+   stt: {
+      type: sequelize.INTEGER,
+      primaryKey: true,
+      unique: true,
+      allowNull: false,
+      autoIncrement: true
+    }
     cbgv: sequelize.STRING,
     holot: sequelize.STRING,
     ten: sequelize.STRING,
@@ -55,13 +62,7 @@ const Data = db.define('Khoaluan5',
     sotiec: sequelize.STRING,
     bomon: sequelize.STRING,
     khoa: sequelize.STRING,
-    stt: {
-      type: sequelize.INTEGER,
-      primaryKey: true,
-      unique: true,
-      allowNull: false,
-      autoIncrement: true
-    }
+   
   }, 
   {
     freezeTableName: true
