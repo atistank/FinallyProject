@@ -29,7 +29,7 @@ app.get('/user2',(req,res)=> {
 })
 
 app.get('/data',(req,res)=> {
-    models.Data.findAll()
+    Data.findAll()
     .then(khoaluan5 => res.json({ketqua: 1, data: khoaluan5}))
     .catch(() => res.json({ketqua: 0}))
 
