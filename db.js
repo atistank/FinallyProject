@@ -15,7 +15,7 @@ db.authenticate()
   .then( function(){ console.log( 'ket noi thanh cong' )})
   .catch(err => console.log( err.message) )
 // dinh nghia table
-const User = db.define('UserLog',
+const User = db.define('UserData',
 {
     username: sequelize.STRING,
     email: sequelize.STRING,
@@ -38,7 +38,7 @@ const User = db.define('UserLog',
 
 })
 
-const Data = db.define('Khoaluan5',
+const Data = db.define('DatabaseKhoaLuan',
 {
    stt: {
       type: sequelize.INTEGER,
