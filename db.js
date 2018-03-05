@@ -46,7 +46,7 @@ const Data = db.define('DatabaseKhoaLuan',
       unique: true,
       allowNull: false,
       autoIncrement: true
-    }
+    },
     cbgv: sequelize.STRING,
     holot: sequelize.STRING,
     ten: sequelize.STRING,
@@ -61,7 +61,7 @@ const Data = db.define('DatabaseKhoaLuan',
     sosv: sequelize.STRING,
     sotiec: sequelize.STRING,
     bomon: sequelize.STRING,
-    khoa: sequelize.STRING,
+    khoa: sequelize.STRING
    
   }, 
   {
