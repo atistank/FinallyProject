@@ -56,7 +56,7 @@ const Data = db.define('Khoaluan5',
     bomon: sequelize.STRING,
     khoa: sequelize.STRING,
     stt: {
-      type: sequelize.STRING,
+      type: sequelize.INTEGER,
       primaryKey: true,
       unique: true,
       allowNull: false,
