@@ -30,7 +30,9 @@ app.get('/user2',(req,res)=> {
 
 app.get('/data',(req,res)=> {
     Data.findAll()
-    .then(khoaluan5 => res.json({ketqua: 1, data: khoaluan5}))
+    .then(khoaluan5 => {
+        console.log("saasdks")
+    })
     .catch(() => res.json({ketqua: 0}))
 
 })
