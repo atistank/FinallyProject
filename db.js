@@ -89,6 +89,7 @@ const klcv_bomon = db.define('klcv_bomon',
    
   }, 
   {
+    timestamps: false,
     freezeTableName: true
 
 })
