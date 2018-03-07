@@ -45,24 +45,6 @@ app.get('/data',(req,res)=> {
 
 })
 
-// them user
-app.post('/add_user',(req,res)=> {
-let {username,email,password,avatar,cover,quyenhan,trangthai,like} = req.body
-User.create({
-     username,
-     email,
-     password,
-     avatar,
-     cover,
-     quyenhan,
-     trangthai,
-     like
-          
-})
-.then(() => res.json({ketqua: 1}))
-.catch(() => res.json({ketqua: 0}))
-})
-
 
 // them user
 app.post('/add_user',(req,res)=> {
