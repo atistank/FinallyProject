@@ -74,15 +74,15 @@ const Data = db.define('Khoaluan4',
 
 const klcv_bomon = db.define('klcv_bomon',
 {
-  ID_BoMon: {
+  id_bomon: {
       type: sequelize.STRING,
       primaryKey: true,
       unique: true,
       allowNull: false
-    },Ten_BoMon: {
+    },ten_bomon: {
       type: sequelize.STRING,
       allowNull: true
-    },ID_Khoa: {
+    },id_khoa: {
       type: sequelize.STRING,
       allowNull: true
     }
