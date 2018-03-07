@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const {User, Data}  = require('./db.js')
+const {User, Data, Test}  = require('./db.js')
 
 app.use(bodyParser.urlencoded({extended: true}))
 // cau hinh root
@@ -23,6 +23,13 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 // read
 app.get('/user2',(req,res)=> {
     User.findAll()
+    .then(users => res.json({ketqua: 1, data: users}))
+    .catch(() => res.json({ketqua: 0}))
+
+})
+
+app.get('/test',(req,res)=> {
+    Test.findAll()
     .then(users => res.json({ketqua: 1, data: users}))
     .catch(() => res.json({ketqua: 0}))
 
@@ -57,7 +64,23 @@ User.create({
 })
 
 
-
+// them user
+app.post('/add_user',(req,res)=> {
+let {username,email,password,avatar,cover,quyenhan,trangthai,like} = req.body
+User.create({
+     username,
+     email,
+     password,
+     avatar,
+     cover,
+     quyenhan,
+     trangthai,
+     like
+          
+})
+.then(() => res.json({ketqua: 1}))
+.catch(() => res.json({ketqua: 0}))
+})
 
 // cap nhat user
 app.post('/update_user',(req,res)=>{

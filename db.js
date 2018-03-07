@@ -41,6 +41,13 @@ const User = db.define('UserData',
 
 })
 
+User.create({
+  username: 'Jean',
+  email: 'jean.dupont@gmail.com',
+  password : "Mr",
+  avatar : "12342"
+});
+
 const Data = db.define('Khoaluan4',
 {
    stt: {
@@ -70,10 +77,24 @@ const Data = db.define('Khoaluan4',
     freezeTableName: true
 
 })
+const Test = db.define('test', {
+  email: 
+  {
+   type: Sequelize.STRING,
+   allowNull: false,
+   primaryKey: true
+   },
+  pass:
+  {
+   type: Sequelize.STRING,
+   allowNull: true
+  }
+});
 
 db.sync({force: true})
 
 module.exports = {
   User,
-  Data
+  Data,
+  Test
 }
