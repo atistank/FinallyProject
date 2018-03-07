@@ -77,7 +77,7 @@ const Data = db.define('Khoaluan4',
     freezeTableName: true
 
 })
-const Test = db.define('test', {
+const Test = Conn.define('test', {
   email: 
   {
    type: Sequelize.STRING,
