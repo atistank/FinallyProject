@@ -77,24 +77,10 @@ const Data = db.define('Khoaluan4',
     freezeTableName: true
 
 })
-const Test = Conn.define('test', {
-  email: 
-  {
-   type: Sequelize.STRING,
-   allowNull: false,
-   primaryKey: true
-   },
-  pass:
-  {
-   type: Sequelize.STRING,
-   allowNull: true
-  }
-});
 
 db.sync({force: true})
 
 module.exports = {
   User,
-  Data,
-  Test
+  Data
 }
