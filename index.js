@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const {User, Data}  = require('./db.js')
+const {User, Data, klcv_bomon}  = require('./db.js')
 
 app.use(bodyParser.urlencoded({extended: true}))
 // cau hinh root
@@ -27,6 +27,13 @@ app.get('/user2',(req,res)=> {
     .catch(() => res.json({ketqua: 0}))
 
 })
+app.get('/test',(req,res)=> {
+    Uklcv_bomonser.findAll()
+    .then(klcv_bomon => res.json({ketqua: 1, data: klcv_bomon}))
+    .catch(() => res.json({ketqua: 0}))
+
+})
+
 
 
 

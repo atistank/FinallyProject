@@ -41,12 +41,6 @@ const User = db.define('UserData',
 
 })
 
-User.create({
-  username: 'Jean',
-  email: 'jean.dupont@gmail.com',
-  password : "Mr",
-  avatar : "12342"
-});
 
 const Data = db.define('Khoaluan4',
 {
@@ -78,9 +72,31 @@ const Data = db.define('Khoaluan4',
 
 })
 
+const klcv_bomon = db.define('klcv_bomon',
+{
+  ID_BoMon: {
+      type: sequelize.STRING,
+      primaryKey: true,
+      unique: true,
+      allowNull: false
+    },Ten_BoMon: {
+      type: sequelize.STRING,
+      allowNull: true
+    },ID_Khoa: {
+      type: sequelize.STRING,
+      allowNull: true
+    }
+   
+  }, 
+  {
+    freezeTableName: true
+
+})
+
 db.sync({force: true})
 
 module.exports = {
   User,
-  Data
+  Data,
+  klcv_bomon
 }
