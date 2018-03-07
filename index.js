@@ -28,7 +28,7 @@ app.get('/user2',(req,res)=> {
 
 })
 app.get('/test',(req,res)=> {
-    Uklcv_bomonser.findAll()
+    klcv_bomon.findAll()
     .then(klcv_bomon => res.json({ketqua: 1, data: klcv_bomon}))
     .catch(() => res.json({ketqua: 0}))
 
