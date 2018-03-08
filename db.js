@@ -559,7 +559,7 @@ const klcv_ketqua = db.define('klcv_ketqua',
     }
     ,HeSo: {
       type: sequelize.FLOAT,
-      allowNull: false,
+      allowNull: true,
       default: null
     }
   }, 
