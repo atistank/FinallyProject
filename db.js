@@ -545,7 +545,7 @@ const klcv_ketqua = db.define('klcv_ketqua',
     }
     ,K: {
       type: sequelize.INTEGER,
-      allowNull: false
+      allowNull: true
     }
     ,ThuaGio: {
       type: sequelize.FLOAT,
