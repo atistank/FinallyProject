@@ -283,8 +283,6 @@ const klcv_hdgd = db.define('klcv_hdgd',
 {
   ID_HDGD: {
       type: sequelize.STRING(25),
-      primaryKey: true,
-      unique: true,
       allowNull: false
     }
     ,Nhom_HP: {
@@ -339,7 +337,9 @@ const klcv_hdgd = db.define('klcv_hdgd',
     ,ID: {
       type: sequelize.INTEGER,
       allowNull: false,
-      default: null
+      default: null,
+      primaryKey: true,
+      unique: true,
     }
     
   }, 
