@@ -100,8 +100,7 @@ const klcv_chitiet_cv = db.define('klcv_chitiet_cv',
       primaryKey: true,
       unique: true,
       allowNull: false
-    },
-    ID_ChucVu: {
+    },ID_ChucVu: {
       type: sequelize.varchar(25),
       allowNull: false
     }
@@ -803,15 +802,7 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
 db.sync({force: true})
 
 module.exports = {
-  User,
-  Data,
-  klcv_bomon,
-klcv_chitiet_cv,
-klcv_chitiet_hdcm
-,klcv_chitiet_hdkhcn
-,klcv_chucvu
-,klcv_giangvien
-,klcv_hdcm
+  User,Data,klcv_bomon,klcv_chitiet_cv,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
 ,klcv_hdgd
 ,klcv_hdkhcn
 ,klcv_heso
