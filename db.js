@@ -95,12 +95,12 @@ const klcv_bomon = db.define('klcv_bomon',
 
 const klcv_chitiet_cv = db.define('klcv_chitiet_cv',
 {
-  ID_GiangVien: {
+  id_giangvien: {
       type: sequelize.STRING(25),
       primaryKey: true,
       unique: true,
       allowNull: false
-    },ID_ChucVu: {
+    },id_chucvu: {
       type: sequelize.STRING(25),
       allowNull: false
     }
