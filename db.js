@@ -395,6 +395,11 @@ const klcv_heso = db.define('klcv_heso',
       allowNull: false,
       default: null
     }
+    ,HeSo_ThucHanh: {
+      type: sequelize.FLOAT,
+      allowNull: false,
+      default: null
+    }
     ,HeSo_ThucHanh_TD: {
       type: sequelize.FLOAT,
       allowNull: false,
