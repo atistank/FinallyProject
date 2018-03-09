@@ -13,8 +13,8 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
 //read one
 app.post('/login', (req, res) => {
-    let {userid} = req.body
-    User.findById(9999)
+    const userid = req.body.userid
+    User.findById(userid)
       .then(users => res.json({ketQua: 1, data: users}))
       .catch(err => res.json({ketqua: 0, error: err.message} ))
   })
