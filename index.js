@@ -15,7 +15,7 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 app.post('/login', (req, res) => {
     let {userid} = req.body
     User.findById(userid)
-      .then(userid => res.json({ketqua: 1, data: userid}))
+      .then(user => res.json({ketqua: 1, data: user.get({ plain: true})}))
       .catch(() => res.json({ketqua: 0}))
   })
  // cap nhat user
