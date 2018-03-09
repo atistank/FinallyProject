@@ -11,13 +11,13 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
 
 
-// //read one
-// app.get('/login', (req, res) => {
-//     let {email,password} = req.query
-//     models.User.findById(email)
-//       .then(users => res.json({ketqua: 1, data: users}))
-//       .catch(() => res.json({ketqua: 0}))
-//   })
+//read one
+app.get('/login', (req, res) => {
+    let {userid,password} = req.query
+    models.User.findById(userid)
+      .then(userid => res.json({ketqua: 1, data: users}))
+      .catch(() => res.json({ketqua: 0}))
+  })
 
 
 // read
