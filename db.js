@@ -31,8 +31,7 @@ const User = db.define('UserData',
       type: sequelize.INTEGER,
       primaryKey: true,
       unique: true,
-      allowNull: false,
-      autoIncrement: true
+      allowNull: false
     }
   }, 
   {
