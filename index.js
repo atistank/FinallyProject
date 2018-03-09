@@ -15,11 +15,12 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 app.post('/login', (req, res) => {
     let {userid} = req.body
     User.findAll({
-        where: {userid: userid},raw: true
+        where: {userid: userid},returning: true
     })
-      .then(userids => res.json({ketqua: 1, data: userids}))
+      .then(userids => res.json({ketqua: 1, data: userids[0]}))
       .catch(() => res.json({ketqua: 0}))
   })
+  
  // cap nhat user
   app.post('/update_user',(req,res)=>{
   let {username,email,password,avatar,cover,quyenhan,trangthai,userid} = req.body
