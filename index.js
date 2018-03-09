@@ -14,43 +14,12 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 //read one
 app.post('/login', (req, res) => {
     let {userid} = req.body
-    User.findById(userid)
+    User.findById(9999)
       .then(users => res.json({ketQua: 1, data: users}))
-      .catch(() => res.json({ketqua: 0}))
+      .catch(err => res.json({ketqua: 0, error: err.message} ))
   })
 
- // cap nhat user()
-  app.post('/update_user',(req,res)=>{
-  let {username,email,password,avatar,cover,quyenhan,trangthai,userid} = req.body
-     User.update({
-              username,
-              email,
-              password,
-              avatar,
-              cover,
-              quyenhan,
-              trangthai
-          },{ where: {userid},returning: true })
-  .then(row => res.json({ketqua: 1, rowsCount: row[0], data: row[1]  }))
-  .catch(err => res.json({ketqua: 0, error: err.message} ))
-  
-  })//
-  
-  
-  
-  
-  
-  
-  app.post('/delete',(req,res)=>{
-      let {id} = req.body
-       User.destroy({
-          where: {userid: id}
-      })
-      .then( row => res.json( {ketqua: 1, rowsCount: row}) )
-      .catch(err => res.json( {ketqua: 0, error: err.message} ))
-  
-  })
-  
+ 
 
 // read
 app.get('/user',(req,res)=> {
