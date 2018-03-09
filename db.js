@@ -28,7 +28,7 @@ const User = db.define('UserData',
     quyenhan: sequelize.INTEGER,
     trangthai: sequelize.INTEGER,
     userid: {
-      type: sequelize.INTEGER,
+      type: sequelize.STRING,
       primaryKey: true,
       unique: true,
       allowNull: false
