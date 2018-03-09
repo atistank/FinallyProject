@@ -35,6 +35,7 @@ const User = db.define('UserData',
     }
   }, 
   {
+    timestamps: false,
     freezeTableName: true
 
 })
