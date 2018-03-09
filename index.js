@@ -14,14 +14,12 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 //read one
 app.post('/login', (req, res) => {
     let {userid} = req.body
-    User.findAll({
-        where: {userid},returning: true
-    })
-      .then(userids => res.json({ketQua: 1, data: userids}))
+    User.findById(userid)
+      .then(users => res.json({ketQua: 1, data: users}))
       .catch(() => res.json({ketqua: 0}))
   })
 
- // cap nhat user
+ // cap nhat user()
   app.post('/update_user',(req,res)=>{
   let {username,email,password,avatar,cover,quyenhan,trangthai,userid} = req.body
      User.update({
