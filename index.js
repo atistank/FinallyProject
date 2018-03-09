@@ -15,12 +15,12 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 app.post('/login', (req, res) => {
     let {userid} = req.body
     User.findAll({
-        where: {userid: userid},returning: true
+        where: {userid},returning: true
     })
-      .then(userids => res.json({ketqua: 1, data: userids[0]}))
+      .then(userids => res.json({ketQua: 1, data: userids}))
       .catch(() => res.json({ketqua: 0}))
   })
-  
+
  // cap nhat user
   app.post('/update_user',(req,res)=>{
   let {username,email,password,avatar,cover,quyenhan,trangthai,userid} = req.body
@@ -45,7 +45,7 @@ app.post('/login', (req, res) => {
   
   app.post('/delete',(req,res)=>{
       let {id} = req.body
-       models.User.destroy({
+       User.destroy({
           where: {userid: id}
       })
       .then( row => res.json( {ketqua: 1, rowsCount: row}) )
