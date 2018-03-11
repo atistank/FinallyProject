@@ -804,7 +804,7 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
 })
 
 
-db.sync({force: true})
+db.sync()
 
 module.exports = {
   User,Data,klcv_bomon,klcv_chitiet_cv,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
