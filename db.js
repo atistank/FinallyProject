@@ -410,48 +410,18 @@ const klcv_heso = db.define('klcv_heso',
       allowNull: false,
       default: null
     }
-    ,HeSo_LopDong_50: {
-      type: sequelize.FLOAT,
-      allowNull: false,
-      default: null
-    }
-    ,HeSo_LopDong_65: {
-      type: sequelize.FLOAT,
-      allowNull: false,
-      default: null
-    }
-    ,HeSo_LopDong_80: {
-      type: sequelize.FLOAT,
-      allowNull: false,
-      default: null
-    }
-    ,HeSo_LopDong_100: {
-      type: sequelize.FLOAT,
-      allowNull: false,
-      default: null
-    }
-    ,HeSo_LopDong_120: {
-      type: sequelize.FLOAT,
-      allowNull: false,
-      default: null
-    }
-    ,HeSo_LopDong_140: {
-      type: sequelize.FLOAT,
-      allowNull: false,
-      default: null
-    }
     
-    ,HeSo_LopDong_160: {
+    ,HeSo_LopDong_Duoi_80: {
       type: sequelize.FLOAT,
       allowNull: false,
       default: null
     }
-    ,HeSo_LopDong_180: {
+    ,HeSo_LopDong_80_150: {
       type: sequelize.FLOAT,
       allowNull: false,
       default: null
     }
-    ,HeSo_LopDong_181: {
+    ,HeSo_LopDong_tren150: {
       type: sequelize.FLOAT,
       allowNull: false,
       default: null
