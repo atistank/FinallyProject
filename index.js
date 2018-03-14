@@ -10,8 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
 
-app.post('/khoiluongcongviec', (req, res) => {
-    const ID_BoMon = req.body.ID_BoMon
+app.get('/khoiluongcongviec', (req, res) => {
  klcv_hdcm.findAll({
     attributes: [
       'QuyChuan',
@@ -53,9 +52,9 @@ app.post('/khoiluongcongviec', (req, res) => {
       attributes: ['SoLuong']
     }],
     group: ['ID_GiangVien']
-  }).then(results =>  {
-    res.json({ketQua: 1, data: users})
-  })
+  }).then(users => res.json({ketQua: 1, data: users}))
+  .catch(err => res.json({ketqua: 0, error: err.message} ))
+})
 
 
 //read one
