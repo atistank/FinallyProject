@@ -9,53 +9,31 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
+SELECT b.ID_GiangVien,n.Ten_Ngach,n.DinhMuc_GD,n.DinhMuc_NCKH,hd.SiSo,hd.SoTietThucHien, b.SoLuong*a.QuyChuan as hdcm
+FROM klcv_hdcm a 
+join klcv_chitiet_hdcm b on a.ID_HDCM=b.ID_HDCM
+join klcv_bomon bm on b.ID_BoMon=bm.ID_BoMon
+join klcv_giangvien gv on gv.ID_GiangVien=b.ID_GiangVien
+join klcv_ngach n on gv.Ngach=n.ID_Ngach
+join klcv_hdgd hd on gv.ID_GiangVien=hd.ID_GiangVien
+group by  b.ID_GiangVien,n.Ten_Ngach,n.DinhMuc_GD,n.DinhMuc_NCKH,hd.SiSo,hd.SoTietThucHien
 
 app.get('/khoiluongcongviec', (req, res) => {
- klcv_hdcm.findAll({
-    attributes: [
-      'QuyChuan',
-    ],
-    include: [{
-      model: klcv_ngach,
-      required: true,
-      attributes: ['Ten_Ngach']
-    }],
-    include: [{
-      model: klcv_ngach,
-      required: true,
-      attributes: ['DinhMuc_GD']
-    }],
-    include: [{
-      model: klcv_ngach,
-      required: true,
-      attributes: ['DinhMuc_NCKH']
-    }],
-     include: [{
-      model: klcv_hdgd,
-      required: true,
-      attributes: ['SiSo']
-    }],
-  include: [{
-      model: klcv_hdgd,
-      required: true,
-      attributes: ['SoTietThucHien']
-    }],
-    include: [{
-      model: klcv_chitiet_hdcm,
-      required: true,
-      as: ID_GiangVien,
-      attributes: ['ID_GiangVien']
-    }],
-    include: [{
-      model: klcv_chitiet_hdcm,
-      required: true,
-      attributes: ['SoLuong']
-    }],
-    group: ['ID_GiangVien']
-  }).then(users => res.json({ketQua: 1, data: users}))
-  .catch(err => res.json({ketqua: 0, error: err.message} ))
-})
+    klcv_hdcm.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_HDCM'});
+    klcv_chitiet_hdcm.belongsToMany(klcv_hdcm, { through: 'ID_HDCM'});
+    
+    klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { through: 'ID_BoMon'});
+    klcv_bomon.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'});
 
+    klcv_ngach.belongsToMany(klcv_giangvien, { through: 'ID_Ngach'});
+    klcv_giangvien.belongsToMany(klcv_ngach, { through: 'Ngach'});
+
+    klcv_hdgd.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'});
+    klcv_giangvien.belongsToMany(klcv_hdgd, { through: 'ID_GiangVien'});
+    klcv_hdcm.findAll()
+    .then(users => res.json({ketqua: 1, data: users}))
+    .catch(() => res.json({ketqua: 0}))
+ })
 
 //read one
 app.post('/login', (req, res) => {
