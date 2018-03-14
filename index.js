@@ -10,6 +10,53 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
 
+app.post('/khoiluongcongviec', (req, res) => {
+    const ID_BoMon = req.body.ID_BoMon
+ klcv_hdcm.findAll({
+    attributes: [
+      'QuyChuan',
+    ],
+    include: [{
+      model: klcv_ngach,
+      required: true,
+      attributes: ['Ten_Ngach']
+    }],
+    include: [{
+      model: klcv_ngach,
+      required: true,
+      attributes: ['DinhMuc_GD']
+    }],
+    include: [{
+      model: klcv_ngach,
+      required: true,
+      attributes: ['DinhMuc_NCKH']
+    }],
+     include: [{
+      model: klcv_hdgd,
+      required: true,
+      attributes: ['SiSo']
+    }],
+  include: [{
+      model: klcv_hdgd,
+      required: true,
+      attributes: ['SoTietThucHien']
+    }],
+    include: [{
+      model: klcv_chitiet_hdcm,
+      required: true,
+      as: ID_GiangVien,
+      attributes: ['ID_GiangVien']
+    }],
+    include: [{
+      model: klcv_chitiet_hdcm,
+      required: true,
+      attributes: ['SoLuong']
+    }],
+    group: ['ID_GiangVien']
+  }).then(results =>  {
+    res.json({ketQua: 1, data: users})
+  })
+
 
 //read one
 app.post('/login', (req, res) => {
