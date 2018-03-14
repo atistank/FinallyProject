@@ -9,14 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
-SELECT b.ID_GiangVien,n.Ten_Ngach,n.DinhMuc_GD,n.DinhMuc_NCKH,hd.SiSo,hd.SoTietThucHien, b.SoLuong*a.QuyChuan as hdcm
-FROM klcv_hdcm a 
-join klcv_chitiet_hdcm b on a.ID_HDCM=b.ID_HDCM
-join klcv_bomon bm on b.ID_BoMon=bm.ID_BoMon
-join klcv_giangvien gv on gv.ID_GiangVien=b.ID_GiangVien
-join klcv_ngach n on gv.Ngach=n.ID_Ngach
-join klcv_hdgd hd on gv.ID_GiangVien=hd.ID_GiangVien
-group by  b.ID_GiangVien,n.Ten_Ngach,n.DinhMuc_GD,n.DinhMuc_NCKH,hd.SiSo,hd.SoTietThucHien
+
 
 app.get('/khoiluongcongviec', (req, res) => {
     klcv_hdcm.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_HDCM'});
