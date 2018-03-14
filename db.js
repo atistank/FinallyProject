@@ -774,8 +774,8 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
     freezeTableName: true
 })
 
-klcv_hdcm.belongsToMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'})
-klcv_chitiet_hdcm.belongsToMany(klcv_hdcm, { foreignKey: 'ID_HDCM'})
+klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'})
+klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM'})
 
 klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { foreignKey: 'ID_BoMon'})
 klcv_bomon.belongsToMany(klcv_chitiet_hdcm, { foreignKey: 'ID_BoMon'})
