@@ -9,21 +9,44 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
+klcv_hdcm.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_HDCM'})
+klcv_chitiet_hdcm.belongsToMany(klcv_hdcm, { through: 'ID_HDCM'})
 
+klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { through: 'ID_BoMon'})
+klcv_bomon.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
+
+klcv_ngach.belongsToMany(klcv_giangvien, { through: 'ID_Ngach'})
+klcv_giangvien.belongsToMany(klcv_ngach, { through: 'ID_Ngach'})
+
+klcv_hdgd.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'})
+klcv_giangvien.belongsToMany(klcv_hdgd, { through: 'ID_GiangVien'})
 
 app.get('/khoiluongcongviec', (req, res) => {
-    klcv_hdcm.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_HDCM'});
-    klcv_chitiet_hdcm.belongsToMany(klcv_hdcm, { through: 'ID_HDCM'});
-    
-    klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { through: 'ID_BoMon'});
-    klcv_bomon.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'});
-    
-    klcv_ngach.belongsToMany(klcv_giangvien, { through: 'Ngach'});
-    klcv_giangvien.belongsToMany(klcv_ngach, { through: 'ID_Ngach'});
-
-    klcv_hdgd.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'});
-    klcv_giangvien.belongsToMany(klcv_hdgd, { through: 'ID_GiangVien'});
-    klcv_hdcm.findAll()
+    klcv_hdcm.findAll({
+        include: [
+            {
+              model: klcv_chitiet_hdcm, 
+              include: [
+                {
+                    model: klcv_bomon, 
+                    include: [
+                        {
+                            model: klcv_ngach, 
+                            include: [
+                                {
+                                    model: klcv_giangvien, 
+                                    include: [
+                                        klcv_hdgd
+                                    ]  
+                                  }
+                            ]  
+                          }
+                    ]  
+                  }
+              ]  
+            }
+          ]
+    })
     .then(users => res.json({ketqua: 1, data: users}))
     .catch(() => res.json({ketqua: 0}))
  })
