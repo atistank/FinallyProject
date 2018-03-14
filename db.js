@@ -118,7 +118,7 @@ const klcv_chitiet_hdcm = db.define('klcv_chitiet_hdcm',
       allowNull: false
     },
     ID_HDCM: {
-      type: sequelize.STRING(25),
+      type: sequelize.INTEGER,
       allowNull: false
     },
     SoLuong: {
@@ -248,7 +248,7 @@ const klcv_giangvien = db.define('klcv_giangvien',
 const klcv_hdcm = db.define('klcv_hdcm',
 {
   ID_HDCM: {
-      type: sequelize.INTEGER(25),
+      type: sequelize.INTEGER,
       primaryKey: true,
       unique: true,
       allowNull: false
