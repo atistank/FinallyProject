@@ -775,8 +775,7 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
 })
 
 
-klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',
-as: 'klcv_chitiet_hdcm type'})
+klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',as: 'klcv_chitiet_hdcm type',constraints: false})
 klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
 klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { through: 'ID_BoMon'})
