@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 
 app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
-
+//
 
 app.get('/khoiluongcongviec', (req, res) => {
     klcv_hdcm.findAll({

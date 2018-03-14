@@ -109,6 +109,7 @@ const klcv_chitiet_cv = db.define('klcv_chitiet_cv',
     timestamps: false,
     freezeTableName: true
 })
+//
 
 const klcv_chitiet_hdcm = db.define('klcv_chitiet_hdcm',
 {
