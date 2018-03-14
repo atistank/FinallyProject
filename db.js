@@ -774,22 +774,22 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
     freezeTableName: true
 })
 
-
+/*
 klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',
 as: 'klcv_chitiet_hdcm type'})
-klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'})
+klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) */
 
-klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { foreignKey: 'ID_BoMon'})
-klcv_bomon.belongsToMany(klcv_chitiet_hdcm, { foreignKey: 'ID_BoMon'})
+klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { through: 'ID_BoMon'})
+klcv_bomon.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
 
-klcv_chitiet_hdcm.belongsToMany(klcv_giangvien, { foreignKey: 'ID_GiangVien'})
-klcv_giangvien.belongsToMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'})
+klcv_chitiet_hdcm.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'})
+klcv_giangvien.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_GiangVien'})
 
-klcv_ngach.belongsToMany(klcv_giangvien, { foreignKey: 'ID_Ngach'})
-klcv_giangvien.belongsToMany(klcv_ngach, { foreignKey: 'ID_Ngach'})
+klcv_ngach.belongsToMany(klcv_giangvien, { through: 'ID_Ngach'})
+klcv_giangvien.belongsToMany(klcv_ngach, { through: 'ID_Ngach'})
 
-klcv_hdgd.belongsToMany(klcv_giangvien, { foreignKey: 'ID_GiangVien'})
-klcv_giangvien.belongsToMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
+klcv_hdgd.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'})
+klcv_giangvien.belongsToMany(klcv_hdgd, { through: 'ID_GiangVien'})
 db.sync({force: true})
 
 module.exports = {
