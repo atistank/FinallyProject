@@ -12,10 +12,11 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
 app.get('/khoiluongcongviec', (req, res) => {
     klcv_hdcm.findAll({
+        attributes: ['ID_HDCM', 'NoiDung', 'QuyChuan'],
         include: [
             {
               model: klcv_chitiet_hdcm,
-              as: 'klcv_chitiet_hdcm'
+              attributes: [['ID_GiangVien', 'SoLuong']]
             }
           ]
     })
