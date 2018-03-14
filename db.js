@@ -787,7 +787,7 @@ klcv_giangvien.belongsToMany(klcv_ngach, { through: 'ID_Ngach'})
 
 klcv_hdgd.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'})
 klcv_giangvien.belongsToMany(klcv_hdgd, { through: 'ID_GiangVien'})
-db.sync()
+db.sync({force: true})
 
 module.exports = {
   User,Data,klcv_bomon,klcv_chitiet_cv,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
