@@ -20,14 +20,9 @@ app.get('/khoiluongcongviec', (req, res) => {
                 include: [
                     {
                       model: klcv_giangvien, 
-                      include: [{
-                        klcv_ngach,
-                         include: [
-                            {
-                                model: klcv_hdgd
-                            }
-                          ]  
-                      }]  
+                      include: [
+                        klcv_ngach
+                      ]  
                     }
                   ]
               }]  
