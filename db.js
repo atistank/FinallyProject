@@ -791,11 +791,11 @@ klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'})
 
 
 
-// klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
-//   model: "chitiec",
-//   unique: false
-// },constraints: false})
-// klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
+klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
 
 
 
