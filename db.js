@@ -78,10 +78,10 @@ const klcv_bomon = db.define('klcv_bomon',
       primaryKey: true,
       unique: true,
       allowNull: false
-    },ten_bomon: {
+    },Ten_BoMon: {
       type: sequelize.STRING(255),
       allowNull: false
-    },id_khoa: {
+    },ID_Khoa: {
       type: sequelize.STRING(255),
       allowNull: false
     }
