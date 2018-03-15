@@ -73,7 +73,7 @@ const Data = db.define('Khoaluan4',
 
 const klcv_bomon = db.define('klcv_bomon',
 {
-  id_bomon: {
+  ID_BoMon: {
       type: sequelize.STRING(25),
       primaryKey: true,
       unique: true,
@@ -781,8 +781,12 @@ klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
 },constraints: false})
 klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
-klcv_chitiet_hdcm.belongsToMany(klcv_bomon, { through: 'ID_BoMon'})
-klcv_bomon.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
+
+klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
 
 klcv_chitiet_hdcm.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'})
 klcv_giangvien.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_GiangVien'})
