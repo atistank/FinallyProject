@@ -354,7 +354,7 @@ const klcv_hdgd = db.define('klcv_hdgd',
 const klcv_hdkhcn = db.define('klcv_hdkhcn',
 {
   ID_KHCN: {
-      type: sequelize.INTEGER(25),
+      type: sequelize.INTEGER,
       primaryKey: true,
       unique: true,
       allowNull: false
@@ -788,14 +788,35 @@ klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
 },constraints: false})
 klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
 
-klcv_chitiet_hdcm.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'})
-klcv_giangvien.belongsToMany(klcv_chitiet_hdcm, { through: 'ID_GiangVien'})
 
-klcv_ngach.belongsToMany(klcv_giangvien, { through: 'ID_Ngach'})
-klcv_giangvien.belongsToMany(klcv_ngach, { through: 'ID_Ngach'})
 
-klcv_hdgd.belongsToMany(klcv_giangvien, { through: 'ID_GiangVien'})
-klcv_giangvien.belongsToMany(klcv_hdgd, { through: 'ID_GiangVien'})
+klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
+
+
+klcv_giangvien.belongsTo(klcv_ngach, { foreignKey: 'ID_Ngach',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_ngach.hasMany(klcv_giangvien, { foreignKey: 'ID_Ngach'}) 
+
+
+
+klcv_giangvien.belongsTo(klcv_ngach, { foreignKey: 'ID_Ngach',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false}) 
+klcv_ngach.hasMany(klcv_giangvien, { foreignKey: 'ID_Ngach'})
+
+klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false}) 
+klcv_giangvien.hasMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
+
 db.sync({force: true})
 
 module.exports = {
