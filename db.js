@@ -93,93 +93,6 @@ const klcv_bomon = db.define('klcv_bomon',
 
 })
 
-const klcv_chitiet_cv = db.define('klcv_chitiet_cv',
-{
-  id_giangvien: {
-      type: sequelize.STRING(25),
-      primaryKey: true,
-      unique: true,
-      allowNull: false
-    },id_chucvu: {
-      type: sequelize.STRING(25),
-      allowNull: false
-    }
-  }, 
-  {
-    timestamps: false,
-    freezeTableName: true
-})
-//
-
-const klcv_chitiet_hdcm = db.define('klcv_chitiet_hdcm',
-{
-  
-    ID_GiangVien: {
-      type: sequelize.STRING(25),
-      allowNull: false
-    },
-    ID_HDCM: {
-      type: sequelize.INTEGER,
-      allowNull: false
-    },
-    SoLuong: {
-      type: sequelize.INTEGER,
-      allowNull: false
-    },
-    ID: {
-      type: sequelize.INTEGER,
-      primaryKey: true,
-      unique: true,
-      allowNull: false
-    },
-    ID_BoMon: {
-      type: sequelize.STRING(25),
-      allowNull: false
-    }
-  }, 
-  {
-    timestamps: false,
-    freezeTableName: true
-})
-
-
-const klcv_chitiet_hdkhcn = db.define('klcv_chitiet_hdkhcn',
-{
-  
-    ID_GiangVien: {
-      type: sequelize.STRING(25),
-      allowNull: false
-    },
-    ID_KHCN: {
-      type: sequelize.STRING(25),
-      allowNull: false
-    },
-    
-    NoiDung: {
-      type: sequelize.STRING(255),
-      allowNull: false
-    },
-    ID: {
-      type: sequelize.INTEGER,
-      primaryKey: true,
-      unique: true,
-      allowNull: false
-    },
-    QuyChuan: {
-      type: sequelize.INTEGER,
-      allowNull: false
-    },
-    GhiChu: {
-      type: sequelize.STRING(255),
-      allowNull: true
-    }
-  }, 
-  {
-    timestamps: false,
-    freezeTableName: true
-})
-
-
 //
 const klcv_chucvu = db.define('klcv_chucvu',
 {
@@ -716,6 +629,94 @@ const klcv_phanhoi = db.define('klcv_phanhoi',
 })
 
 
+const klcv_chitiet_cv = db.define('klcv_chitiet_cv',
+{
+  id_giangvien: {
+      type: sequelize.STRING(25),
+      primaryKey: true,
+      unique: true,
+      allowNull: false
+    },id_chucvu: {
+      type: sequelize.STRING(25),
+      allowNull: false
+    }
+  }, 
+  {
+    timestamps: false,
+    freezeTableName: true
+})
+//
+
+const klcv_chitiet_hdcm = db.define('klcv_chitiet_hdcm',
+{
+  
+    ID_GiangVien: {
+      type: sequelize.STRING(25),
+      allowNull: false
+    },
+    ID_HDCM: {
+      type: sequelize.INTEGER,
+      allowNull: false
+    },
+    SoLuong: {
+      type: sequelize.INTEGER,
+      allowNull: false
+    },
+    ID: {
+      type: sequelize.INTEGER,
+      primaryKey: true,
+      unique: true,
+      allowNull: false
+    },
+    ID_BoMon: {
+      type: sequelize.STRING(25),
+      allowNull: false
+    }
+  }, 
+  {
+    timestamps: false,
+    freezeTableName: true
+})
+
+
+const klcv_chitiet_hdkhcn = db.define('klcv_chitiet_hdkhcn',
+{
+  
+    ID_GiangVien: {
+      type: sequelize.STRING(25),
+      allowNull: false
+    },
+    ID_KHCN: {
+      type: sequelize.STRING(25),
+      allowNull: false
+    },
+    
+    NoiDung: {
+      type: sequelize.STRING(255),
+      allowNull: false
+    },
+    ID: {
+      type: sequelize.INTEGER,
+      primaryKey: true,
+      unique: true,
+      allowNull: false
+    },
+    QuyChuan: {
+      type: sequelize.INTEGER,
+      allowNull: false
+    },
+    GhiChu: {
+      type: sequelize.STRING(255),
+      allowNull: true
+    }
+  }, 
+  {
+    timestamps: false,
+    freezeTableName: true
+})
+
+
+
 
 
 const klcv_quyen = db.define('klcv_quyen',
@@ -782,40 +783,36 @@ klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
 klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
 
-klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
-  model: "chitiec",
-  unique: false
-},constraints: false})
-klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
-
-
-
 klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
-  model: "chitiec",
+  model: "chitiec2",
   unique: false
 },constraints: false})
 klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
 
 
-klcv_giangvien.belongsTo(klcv_ngach, { foreignKey: 'ID_Ngach',"through": {
-  model: "chitiec",
-  unique: false
-},constraints: false})
-klcv_ngach.hasMany(klcv_giangvien, { foreignKey: 'ID_Ngach'}) 
+
+// klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
+//   model: "chitiec",
+//   unique: false
+// },constraints: false})
+// klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
 
 
 
-klcv_giangvien.belongsTo(klcv_ngach, { foreignKey: 'ID_Ngach',"through": {
-  model: "chitiec",
-  unique: false
-},constraints: false}) 
-klcv_ngach.hasMany(klcv_giangvien, { foreignKey: 'ID_Ngach'})
 
-klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
-  model: "chitiec",
-  unique: false
-},constraints: false}) 
-klcv_giangvien.hasMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
+
+// klcv_giangvien.belongsTo(klcv_ngach, { foreignKey: 'ID_Ngach',"through": {
+//   model: "chitiec",
+//   unique: false
+// },constraints: false})
+// klcv_ngach.hasMany(klcv_giangvien, { foreignKey: 'ID_Ngach'}) 
+
+
+// klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
+//   model: "chitiec",
+//   unique: false
+// },constraints: false}) 
+// klcv_giangvien.hasMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
 
 db.sync({force: true})
 
