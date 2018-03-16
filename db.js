@@ -633,6 +633,7 @@ const klcv_chitiet_hdcm = db.define('klcv_chitiet_hdcm',
   
     ID_GiangVien: {
       type: sequelize.STRING(25),
+      default: null,
       allowNull: false
     },
     ID_HDCM: {
@@ -757,11 +758,11 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
 })
 
 
-// klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
-//   model: "chitiec2",
-//   unique: false
-// },constraints: false})
-// klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
+klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
+  model: "chitiec2",
+  unique: false
+},constraints: false})
+klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
 
 // klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
 //   model: "chitiec",
