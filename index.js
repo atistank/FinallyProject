@@ -74,8 +74,8 @@ app.post('/khoiluongcongviec2', (req, res) => {
           ]
     }
 )
-.then(users => res.json({ketQua: 1, data: users}))
-.catch(err => res.json({ketqua: 0, error: err.message} ))
+    .then(users => res.json({ketqua: 1, data: users}))
+    .catch(err => res.json({ketqua: 0, error: err.message}))
  })
 
 
