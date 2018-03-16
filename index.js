@@ -17,7 +17,12 @@ app.get('/khoiluongcongviec', (req, res) => {
               model: klcv_chitiet_hdcm,
               include: [
                 {
-                  model: klcv_giangvien
+                  model: klcv_giangvien,
+                  include: [
+                    {
+                      model: klcv_bomon                  
+                    }
+                  ]
                 }
               ]
             }
