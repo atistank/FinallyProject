@@ -799,7 +799,7 @@ klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'})
 db.sync({force: true})
 
 module.exports = {
-  User,Data,klcv_bomon,klcv_chitiet_cv,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
+  User,Data,klcv_bomon,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
 ,klcv_hdgd
 ,klcv_hdkhcn
 ,klcv_heso
