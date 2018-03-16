@@ -628,24 +628,6 @@ const klcv_phanhoi = db.define('klcv_phanhoi',
 })
 
 
-const klcv_chitiet_cv = db.define('klcv_chitiet_cv',
-{
-  id_giangvien: {
-      type: sequelize.STRING(25),
-      primaryKey: true,
-      unique: true,
-      allowNull: false
-    },id_chucvu: {
-      type: sequelize.STRING(25),
-      allowNull: false
-    }
-  }, 
-  {
-    timestamps: false,
-    freezeTableName: true
-})
-//
-
 const klcv_chitiet_hdcm = db.define('klcv_chitiet_hdcm',
 {
   
