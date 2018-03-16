@@ -48,25 +48,25 @@ app.get('/khoiluongcongviec', (req, res) => {
 
 app.get('/khoiluongcongviec2', (req, res) => {
     klcv_bomon.findAll(
-       // {
-        // include: [
-        //     {
-        //       attributes: ['Ho_GiangVien','Ten_GiangVien','GioiTinh'],
-        //       model: klcv_giangvien
-        //     //   include: [
-        //     //     {
-        //     //       attributes: ['ID_GiangVien','SoLuong'],
-        //     //       model: klcv_chitiet_hdcm,
-        //     //       include: [
-        //     //         {
-        //     //           model: klcv_hdcm                  
-        //     //         }
-        //     //       ]
-        //     //     }
-        //     //   ]
-        //     }
-        //   ]
-   // }
+        {
+        include: [
+            {
+            //   attributes: ['Ho_GiangVien','Ten_GiangVien','GioiTinh'],
+              model: klcv_giangvien
+            //   include: [
+            //     {
+            //       attributes: ['ID_GiangVien','SoLuong'],
+            //       model: klcv_chitiet_hdcm,
+            //       include: [
+            //         {
+            //           model: klcv_hdcm                  
+            //         }
+            //       ]
+            //     }
+            //   ]
+            }
+          ]
+    }
 )
     .then(users => res.json({ketqua: 1, data: users}))
     .catch(() => res.json({ketqua: 0}))
