@@ -52,11 +52,11 @@ app.get('/khoiluongcongviec2', (req, res) => {
          attributes: ['Ten_BoMon'],
         include: [
             {
-              attributes: ['Ho_GiangVien','Ten_GiangVien','GioiTinh'],
+              attributes: ['ID_GiangVien','Ho_GiangVien','Ten_GiangVien','GioiTinh'],
               model: klcv_giangvien,
               include: [
                 {
-                  attributes: ['ID_GiangVien','SoLuong'],
+                  attributes: ['SoLuong'],
                   model: klcv_chitiet_hdcm,
                   include: [
                     {
