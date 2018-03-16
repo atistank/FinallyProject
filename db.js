@@ -134,7 +134,7 @@ const klcv_giangvien = db.define('klcv_giangvien',
       allowNull: true
     }
     ,ID_Ngach: {
-      type: sequelize.INTEGER,
+      type: sequelize.STRING(10),
       allowNull: false
     }
     ,ChucVu: {
@@ -517,7 +517,7 @@ const klcv_namhoc = db.define('klcv_namhoc',
 const klcv_ngach = db.define('klcv_ngach',
 {
   ID_Ngach: {
-      type: sequelize.INTEGER,
+      type: sequelize.STRING(10),
       primaryKey: true,
       unique: true,
       allowNull: false
