@@ -48,22 +48,21 @@ app.get('/khoiluongcongviec', (req, res) => {
 
 app.get('/khoiluongcongviec2', (req, res) => {
     klcv_bomon.findAll({
-        attributes: ['Ten_BoMon'],
         include: [
             {
               attributes: ['Ho_GiangVien','Ten_GiangVien','GioiTinh'],
-              model: klcv_giangvien,
-              include: [
-                {
-                  attributes: ['ID_GiangVien','SoLuong'],
-                  model: klcv_chitiet_hdcm,
-                  include: [
-                    {
-                      model: klcv_hdcm                  
-                    }
-                  ]
-                }
-              ]
+              model: klcv_giangvien
+            //   include: [
+            //     {
+            //       attributes: ['ID_GiangVien','SoLuong'],
+            //       model: klcv_chitiet_hdcm,
+            //       include: [
+            //         {
+            //           model: klcv_hdcm                  
+            //         }
+            //       ]
+            //     }
+            //   ]
             }
           ]
     })
