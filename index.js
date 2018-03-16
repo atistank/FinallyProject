@@ -19,9 +19,11 @@ app.get('/khoiluongcongviec', (req, res) => {
               model: klcv_chitiet_hdcm,
               include: [
                 {
+                  attributes: ['Ho_GiangVien','Ten_GiangVien','GioiTinh'],
                   model: klcv_giangvien,
                   include: [
                     {
+                      attributes: ['Ten_BoMon'],
                       model: klcv_bomon                  
                     },{
                         model: klcv_ngach,attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK'],
@@ -30,7 +32,7 @@ app.get('/khoiluongcongviec', (req, res) => {
                 }
               ]
             }
-          ]
+          ],group: klcv_bomon
     })
     .then(users => res.json({ketqua: 1, data: users}))
     .catch(() => res.json({ketqua: 0}))
