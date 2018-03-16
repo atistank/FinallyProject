@@ -47,12 +47,12 @@ app.get('/khoiluongcongviec', (req, res) => {
 // }
 
 app.get('/khoiluongcongviec2', (req, res) => {
-    klcv_giangvien.findAll(
+    klcv_bomon.findAll(
         {
         include: [
             {
             //   attributes: ['Ho_GiangVien','Ten_GiangVien','GioiTinh'],
-              model: klcv_bomon
+              model: klcv_giangvien
             //   include: [
             //     {
             //       attributes: ['ID_GiangVien','SoLuong'],
