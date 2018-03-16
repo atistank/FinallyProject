@@ -775,7 +775,7 @@ klcv_giangvien.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
   model: "chitiec",
   unique: false
 },constraints: false})
-// klcv_bomon.hasMany(klcv_giangvien, { through: 'ID_BoMon'}) /
+ klcv_bomon.hasMany(klcv_giangvien, { foreignKey: 'ID_BoMon'}) /
 
 
 
