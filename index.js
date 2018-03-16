@@ -14,7 +14,12 @@ app.get('/khoiluongcongviec', (req, res) => {
     klcv_hdcm.findAll({
         include: [
             {
-              model: klcv_chitiet_hdcm
+              model: klcv_chitiet_hdcm,
+              include: [
+                {
+                  model: klcv_bomon
+                }
+              ]
             }
           ]
     })
