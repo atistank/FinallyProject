@@ -763,21 +763,19 @@ klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID',"through": {
 },constraints: false})
 klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
-// klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
-//   model: "chitiec",
-//   unique: false
-// },constraints: false})
-// klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
+klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
 
 
-
-//
-// klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
-//   model: "chitiec",
-//   unique: false
-// },constraints: false})
-// klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
+klcv_giangvien.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+// klcv_bomon.hasMany(klcv_giangvien, { through: 'ID_BoMon'})
 
 
 
