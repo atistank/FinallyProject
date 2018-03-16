@@ -59,7 +59,7 @@ app.get('/khoiluongcongviec2', (req, res) => {
                     }
                   ]
                 },{
-                    model: klcv_ngach,attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK'],
+                    model: klcv_ngach,attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK']
                 }
               ]
             }
