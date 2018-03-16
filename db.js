@@ -120,7 +120,6 @@ const klcv_giangvien = db.define('klcv_giangvien',
 {
   ID_GiangVien: {
       type: sequelize.STRING(25),
-      unique: true,
       allowNull: false
     },Ho_GiangVien: {
       type: sequelize.STRING(45),
@@ -758,11 +757,11 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
 })
 
 
-klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
-  model: "chitiec2",
+klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID',"through": {
+  model: "chitiec",
   unique: false
 },constraints: false})
-klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
+klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
 // klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
 //   model: "chitiec",
