@@ -134,7 +134,7 @@ const klcv_giangvien = db.define('klcv_giangvien',
       allowNull: true
     }
     ,ID_Ngach: {
-      type: sequelize.STRING(25),
+      type: sequelize.INTEGER,
       allowNull: false
     }
     ,ChucVu: {
@@ -779,13 +779,11 @@ klcv_giangvien.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
 
 
 
-
-
-// klcv_giangvien.belongsTo(klcv_ngach, { foreignKey: 'ID_Ngach',"through": {
-//   model: "chitiec",
-//   unique: false
-// },constraints: false})
-// klcv_ngach.hasMany(klcv_giangvien, { foreignKey: 'ID_Ngach'}) 
+klcv_giangvien.belongsTo(klcv_ngach, { foreignKey: 'ID_Ngach',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_ngach.hasMany(klcv_giangvien, { foreignKey: 'ID_Ngach'}) 
 
 
 // klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
