@@ -772,7 +772,7 @@ klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'})
 
 
 
-
+//
 // klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
 //   model: "chitiec",
 //   unique: false
