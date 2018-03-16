@@ -47,7 +47,8 @@ app.get('/khoiluongcongviec', (req, res) => {
 // }
 
 app.get('/khoiluongcongviec2', (req, res) => {
-    klcv_bomon.findAll({
+    klcv_bomon.findAll(
+       // {
         // include: [
         //     {
         //       attributes: ['Ho_GiangVien','Ten_GiangVien','GioiTinh'],
@@ -65,7 +66,8 @@ app.get('/khoiluongcongviec2', (req, res) => {
         //     //   ]
         //     }
         //   ]
-    })
+   // }
+)
     .then(users => res.json({ketqua: 1, data: users}))
     .catch(() => res.json({ketqua: 0}))
  })
