@@ -11,8 +11,7 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 //
 
 app.get('/khoiluongcongviec', (req, res) => {
-    klcv_hdcm.findAll({
-        
+    klcv_hdcm.findAll({  
         include: [
             {
               attributes: ['ID_GiangVien','SoLuong'],
@@ -46,35 +45,37 @@ app.get('/khoiluongcongviec', (req, res) => {
 //     attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK']
 // }
 
-app.get('/khoiluongcongviec2', (req, res) => {
+app.post('/khoiluongcongviec2', (req, res) => {
+    const ID_BoMon = req.body.ID_BoMon
     klcv_bomon.findAll(
         {
-         attributes: ['Ten_BoMon'],
+        where: ID_BoMon = ID_BoMon,   
+        attributes: ['Ten_BoMon'],
         include: [
             {
               attributes: ['ID_GiangVien','Ho_GiangVien','Ten_GiangVien','GioiTinh'],
               model: klcv_giangvien,
               include: [
                 {
-                  attributes: ['SoLuong'],
-                  model: klcv_chitiet_hdcm,
-                  include: [
-                    {
-                      model: klcv_hdcm                  
-                    }
-                  ]
-                },
-                {
                     model: klcv_ngach, 
                     attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK']
-                }
+                },
+                {
+                    attributes: ['SoLuong'],
+                    model: klcv_chitiet_hdcm,
+                    include: [
+                      {
+                        model: klcv_hdcm                  
+                      }
+                    ]
+                  }
               ]
             }
           ]
     }
 )
-    .then(users => res.json({ketqua: 1, data: users}))
-    .catch(() => res.json({ketqua: 0}))
+.then(users => res.json({ketQua: 1, data: users}))
+.catch(err => res.json({ketqua: 0, error: err.message} ))
  })
 
 
