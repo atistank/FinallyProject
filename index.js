@@ -47,9 +47,8 @@ app.get('/khoiluongcongviec', (req, res) => {
 
 app.post('/khoiluongcongviec2', (req, res) => {
     const ID_BoMon = req.body.ID_BoMon
-    klcv_bomon.find(
-        {
-        where: ID_BoMon,   
+    klcv_bomon.find(ID_BoMon,
+        {   
         attributes: ['Ten_BoMon'],
         include: [
             {
