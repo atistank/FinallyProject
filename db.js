@@ -221,7 +221,6 @@ const klcv_hdgd = db.define('klcv_hdgd',
     }
     ,ID_GiangVien: {
       type: sequelize.STRING(25),
-      allowNull: false
     }
     ,Phong: {
       type: sequelize.STRING(45),
@@ -776,6 +775,12 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
 })
 
 
+klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
+  model: "chitiec2",
+  unique: false
+},constraints: false})
+klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
+
 klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
   model: "chitiec",
   unique: false
@@ -783,19 +788,14 @@ klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
 klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
 
-klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
-  model: "chitiec2",
-  unique: false
-},constraints: false})
-klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
 
 
 
-klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
-  model: "chitiec",
-  unique: false
-},constraints: false})
-klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
+// klcv_chitiet_hdcm.belongsTo(klcv_bomon, { foreignKey: 'ID_BoMon',"through": {
+//   model: "chitiec",
+//   unique: false
+// },constraints: false})
+// klcv_bomon.hasMany(klcv_chitiet_hdcm, { through: 'ID_BoMon'})
 
 
 
