@@ -12,8 +12,10 @@ app.get('/',(req,res)=> res.send('wellcome web cua finally Project'))
 
 app.get('/khoiluongcongviec', (req, res) => {
     klcv_hdcm.findAll({
+        
         include: [
             {
+              attributes: ['ID_GiangVien','SoLuong'],
               model: klcv_chitiet_hdcm,
               include: [
                 {
@@ -21,11 +23,8 @@ app.get('/khoiluongcongviec', (req, res) => {
                   include: [
                     {
                       model: klcv_bomon                  
-                    }
-                  ],
-                  include: [
-                    {
-                      model: klcv_ngach                  
+                    },{
+                        model: klcv_ngach,attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK'],
                     }
                   ]
                 }
