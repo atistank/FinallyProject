@@ -757,17 +757,17 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
 })
 
 
-klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
-  model: "chitiec2",
-  unique: false
-},constraints: false})
-klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
+// klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
+//   model: "chitiec2",
+//   unique: false
+// },constraints: false})
+// klcv_giangvien.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_GiangVien'}) 
 
-klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
-  model: "chitiec",
-  unique: false
-},constraints: false})
-klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
+// klcv_chitiet_hdcm.belongsTo(klcv_hdcm, { foreignKey: 'ID_HDCM',"through": {
+//   model: "chitiec",
+//   unique: false
+// },constraints: false})
+// klcv_hdcm.hasMany(klcv_chitiet_hdcm, { foreignKey: 'ID_HDCM'}) 
 
 
 
