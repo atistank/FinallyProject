@@ -49,7 +49,7 @@ app.post('/khoiluongcongviec2', (req, res) => {
     const ID_BoMon = req.body.ID_BoMon
     klcv_bomon.findById(ID_BoMon,
         {   
-        attributes: ['Ten_BoMon'],
+        attributes: ['Ten_BoMon','ID_Khoa'],
         include: [
             {
               attributes: ['ID_GiangVien','Ho_GiangVien','Ten_GiangVien','GioiTinh'],
