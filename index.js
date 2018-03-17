@@ -132,14 +132,11 @@ app.get('/klcv_hdcm',(req,res)=> {
 })
 
 
+
 app.get('/klcv_hdgd',(req,res)=> {
     klcv_hdgd.findAll()
-    .then(klcv_hdgd => res.json({
-        ketqua: 1,
-        data: klcv_hdgd
-    }))
+    .then(klcv_hdgd => res.json({ketqua: 1, data: klcv_hdgd}))
     .catch(() => res.json({ketqua: 0}))
-
 })
 
 app.get('/klcv_hdkhcn',(req,res)=> {
