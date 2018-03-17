@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const {User,Data,klcv_bomon,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm,klcv_hdg,klcv_hdkhcn,klcv_heso,klcv_hocpha,klcv_ketqua,klcv_khoa,klcv_luong,klcv_namhoc,klcv_ngach,klcv_nhatky,klcv_phanhoi,klcv_quyen,klcv_thanhvien}  = require('./db.js')
+const {User,Data,klcv_bomon,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdgd,klcv_hdcm,klcv_hdg,klcv_hdkhcn,klcv_heso,klcv_hocpha,klcv_ketqua,klcv_khoa,klcv_luong,klcv_namhoc,klcv_ngach,klcv_nhatky,klcv_phanhoi,klcv_quyen,klcv_thanhvien}  = require('./db.js')
 
 app.use(bodyParser.urlencoded({extended: true}))
 // cau hinh root
