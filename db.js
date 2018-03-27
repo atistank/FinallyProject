@@ -793,7 +793,7 @@ klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
 klcv_giangvien.hasMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
 
 // db.sync({force: true})
-db.sync()
+db.sync({force: true})
 module.exports = {
   User,Data,klcv_bomon,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
 ,klcv_hdgd
