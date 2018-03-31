@@ -60,6 +60,9 @@ app.post('/khoiluongcongviec2', (req, res) => {
                     attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK']
                 },
                 {
+                    model: klcv_hdgd
+                },
+                {
                     attributes: ['SoLuong'],
                     model: klcv_chitiet_hdcm,
                     include: [
