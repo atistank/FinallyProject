@@ -81,6 +81,43 @@ app.post('/khoiluongcongviec2', (req, res) => {
  })
 
 
+ app.post('/khoiluongcongviecmotnguoi', (req, res) => {
+    const IDGIANGVIEN = req.body.IDGIANGVIEN
+    klcv_giangvien.findById(IDGIANGVIEN,
+        {   
+        attributes: ['ID_GiangVien','Ho_GiangVien','Ten_GiangVien','GioiTinh'],
+        include: [
+            {
+              attributes: ['Ten_BoMon','ID_Khoa'],
+              model: klcv_bomon,
+              include: [
+                {
+                    model: klcv_ngach, 
+                    attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK']
+                },
+                {
+                    model: klcv_hdgd
+                },
+                {
+                    attributes: ['SoLuong'],
+                    model: klcv_chitiet_hdcm,
+                    include: [
+                      {
+                        model: klcv_hdcm                  
+                      }
+                    ]
+                  }
+              ]
+            }
+          ]
+    }
+)
+    .then(users => res.json({ketqua: 1, data: users}))
+    .catch(err => res.json({ketqua: 0, error: err.message}))
+ })
+
+
+
 
  
 
