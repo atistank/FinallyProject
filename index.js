@@ -90,17 +90,6 @@ app.post('/khoiluongcongviec2', (req, res) => {
             {
               attributes: ['Ten_BoMon','ID_Khoa'],
               model: klcv_bomon,
-              include: [
-                {
-                    attributes: ['SoLuong'],
-                    model: klcv_chitiet_hdcm,
-                    include: [
-                      {
-                        model: klcv_hdcm                  
-                      }
-                    ]
-                  }
-              ]
             },
             {
                 model: klcv_ngach, 
@@ -108,7 +97,16 @@ app.post('/khoiluongcongviec2', (req, res) => {
             },
             {
                 model: klcv_hdgd
-            }
+            },
+            {
+                attributes: ['SoLuong'],
+                model: klcv_chitiet_hdcm,
+                include: [
+                  {
+                    model: klcv_hdcm                  
+                  }
+                ]
+              }
           ]
     }
 )
