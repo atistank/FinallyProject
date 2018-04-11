@@ -40,11 +40,6 @@ app.get('/khoiluongcongviec', (req, res) => {
 
 
 
-//  ,{
-//     model: klcv_ngach, 
-//     attributes: ['Ten_Ngach','DinhMuc_GD','DinhMuc_NCKH','DinhMuc_HDK']
-// }
-
 app.post('/khoiluongcongviec2', (req, res) => {
     const ID_BoMon = req.body.ID_BoMon
     klcv_bomon.findById(ID_BoMon,
