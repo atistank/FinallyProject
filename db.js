@@ -792,6 +792,12 @@ klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
 },constraints: false}) 
 klcv_giangvien.hasMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
 
+klcv_hocphan.belongsTo(klcv_hdgd, { foreignKey: 'ID_HDGD',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false}) 
+klcv_hdgd.hasOne(klcv_hocphan, { foreignKey: 'ID_HocPhan'})
+
 // db.sync({force: true})
 db.sync()
 module.exports = {
