@@ -798,8 +798,8 @@ klcv_hocphan.belongsTo(klcv_hdgd, { foreignKey: 'ID_HocPhan',"through": {
 },constraints: false}) 
 klcv_hdgd.hasOne(klcv_hocphan, { foreignKey: 'ID_HDGD'})
 
- db.sync({force: true})
-//db.sync()
+//  db.sync({force: true})
+db.sync()
 module.exports = {
   User,Data,klcv_bomon,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
 ,klcv_hdgd
