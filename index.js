@@ -97,9 +97,9 @@ app.post('/khoiluongcongviec2', (req, res) => {
             },
             {
                 model: klcv_hdgd,
-                include: {
+                include: [{
                     model: klcv_hocphan
-                }
+                }]
             },
             {
                 attributes: ['SoLuong'],
