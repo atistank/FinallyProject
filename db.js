@@ -349,7 +349,7 @@ const klcv_heso = db.define('klcv_heso',
     timestamps: false,
     freezeTableName: true
 })
-
+//
 const klcv_hocphan = db.define('klcv_hocphan',
 {
   ID_HocPhan: {
