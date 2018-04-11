@@ -190,12 +190,12 @@ app.get('/klcv_heso',(req,res)=> {
     .then(klcv_bomon => res.json({ketqua: 1, data: klcv_bomon}))
     .catch(() => res.json({ketqua: 0}))
 })
-
 app.get('/klcv_hocphan',(req,res)=> {
     klcv_hocphan.findAll()
-    .then(klcv_bomon => res.json({ketqua: 1, data: klcv_bomon}))
+    .then(klcv_hocphan => res.json({ketqua: 1, data: klcv_hocphan}))
     .catch(() => res.json({ketqua: 0}))
 })
+
 app.get('/klcv_heso',(req,res)=> {
     klcv_heso.findAll()
     .then(klcv_bomon => res.json({ketqua: 1, data: klcv_bomon}))
