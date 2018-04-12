@@ -792,11 +792,11 @@ klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
 },constraints: false}) 
 klcv_giangvien.hasMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
 
-klcv_hdgd.belongsTo(klcv_hocphan, { foreignKey: 'ID_HDGD',"through": {
+klcv_hdgd.belongsTo(klcv_hocphan, { foreignKey: 'ID_HocPhan',"through": {
   model: "chitiec",
   unique: false
 },constraints: false}) 
-klcv_hocphan.hasMany(klcv_hdgd, { foreignKey: 'ID_HocPhan'})
+klcv_hocphan.hasMany(klcv_hdgd, { foreignKey: 'ID_HDGD'})
 
 // klcv_hocphan.belongsTo(klcv_hdgd, { foreignKey: 'ID_HocPhan',"through": {
 //   model: "chitiec",
