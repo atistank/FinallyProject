@@ -803,7 +803,7 @@ klcv_hocphan.hasMany(klcv_hdgd, { foreignKey: 'ID_HDGD'})
 //   unique: false
 // },constraints: false}) 
 // klcv_hdgd.hasMany(klcv_hocphan, { foreignKey: 'ID_HDGD'})
-
+//
 //  db.sync({force: true})
 db.sync()
 module.exports = {
