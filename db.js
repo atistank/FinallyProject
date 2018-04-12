@@ -796,7 +796,7 @@ klcv_hocphan.belongsTo(klcv_hdgd, { foreignKey: 'ID_HocPhan',"through": {
   model: "chitiec",
   unique: false
 },constraints: false}) 
-klcv_hdgd.hasOne(klcv_hocphan, { foreignKey: 'ID_HDGD'})
+klcv_hdgd.hasMany(klcv_hocphan, { foreignKey: 'ID_HDGD'})
 
 //  db.sync({force: true})
 db.sync()
