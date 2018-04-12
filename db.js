@@ -352,7 +352,7 @@ const klcv_heso = db.define('klcv_heso',
 //
 const klcv_hocphan = db.define('klcv_hocphan',
 {
-  ID_HocPhan: {
+  ID_HDGD: {
       type: sequelize.STRING(25),
       primaryKey: true,
       unique: true,
@@ -792,7 +792,7 @@ klcv_hdgd.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
 },constraints: false}) 
 klcv_giangvien.hasMany(klcv_hdgd, { foreignKey: 'ID_GiangVien'})
 
-klcv_hdgd.belongsTo(klcv_hocphan, { foreignKey: 'ID_HocPhan',"through": {
+klcv_hdgd.belongsTo(klcv_hocphan, { foreignKey: 'ID_HDGD',"through": {
   model: "chitiec",
   unique: false
 },constraints: false}) 
