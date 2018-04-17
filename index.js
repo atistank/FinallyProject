@@ -271,23 +271,23 @@ app.get('/klcv_giangvienXacnhan',(req,res)=> {
     .catch(() => res.json({ketqua: 0}))
 })
 
-app.post('/add_xacnhan',(req,res)=> {
-    let {ID_GiangVien,Ho_GiangVien,Ten_GiangVien,ID_BoMon,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
-    klcv_giangvienXacnhan.create({
-        ID_GiangVien,
-        Ho_GiangVien,
-        Ten_GiangVien,
-        ID_BoMon,
-        khoiluongcongviec,
-        xacnhanKhoa,
-        xacnhanBomon,
-        xacnhanCanhan,
-        xacnhanPhongDaotao
+// app.post('/add_xacnhan',(req,res)=> {
+//     let {ID_GiangVien,Ho_GiangVien,Ten_GiangVien,ID_BoMon,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
+//     klcv_giangvienXacnhan.create({
+//         ID_GiangVien,
+//         Ho_GiangVien,
+//         Ten_GiangVien,
+//         ID_BoMon,
+//         khoiluongcongviec,
+//         xacnhanKhoa,
+//         xacnhanBomon,
+//         xacnhanCanhan,
+//         xacnhanPhongDaotao
               
-    })
-    .then(() => res.json({ketqua: 1}))
-    .catch(() => res.json({ketqua: 0}))
-    })
+//     })
+//     .then(() => res.json({ketqua: 1}))
+//     .catch(() => res.json({ketqua: 0}))
+//     })
 
 // cap nhat user
 app.post('/update_user',(req,res)=>{
