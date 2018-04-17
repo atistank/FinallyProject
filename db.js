@@ -183,23 +183,23 @@ const klcv_giangvienXacnhan = db.define('klcv_giangvienXacnhan',
       allowNull: false
     },
     xacnhanKhoa: {
-      type: sequelize.BOOL,
-      default: false,
+      type: sequelize.INTEGER,
+      default: 0,
       allowNull: false
     } ,
     xacnhanBomon: {
-      type: sequelize.BOOL,
-      default: false,
+      type: sequelize.INTEGER,
+      default: 0,
       allowNull: false
     } ,
     xacnhanCanhan: {
-      type: sequelize.BOOL,
-      default: false,
+      type: sequelize.INTEGER,
+      default: 0,
       allowNull: false
     } ,
     xacnhanPhongDaotao: {
-      type: sequelize.BOOL,
-      default: false,
+      type: sequelize.INTEGER,
+      default: 0,
       allowNull: false
     } 
     
