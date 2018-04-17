@@ -158,6 +158,58 @@ const klcv_giangvien = db.define('klcv_giangvien',
 })
 
 
+const klcv_giangvienXacnhan = db.define('klcv_giangvienXacnhan',
+{
+  ID_GiangVien: {
+      type: sequelize.STRING(25),
+      primaryKey: true,
+      unique: true,
+      allowNull: false
+    },Ho_GiangVien: {
+      type: sequelize.STRING(45),
+      allowNull: false
+    }
+    ,Ten_GiangVien: {
+      type: sequelize.STRING(45),
+      allowNull: false
+    }
+    ,ID_BoMon: {
+      type: sequelize.STRING(25),
+      allowNull: false
+    }
+    ,khoiluongcongviec: {
+      type: sequelize.INTEGER,
+      defaults: 0,
+      allowNull: false
+    },
+    xacnhanKhoa: {
+      type: sequelize.BOOL,
+      default: false,
+      allowNull: false
+    } ,
+    xacnhanBomon: {
+      type: sequelize.BOOL,
+      default: false,
+      allowNull: false
+    } ,
+    xacnhanCanhan: {
+      type: sequelize.BOOL,
+      default: false,
+      allowNull: false
+    } ,
+    xacnhanPhongDaotao: {
+      type: sequelize.BOOL,
+      default: false,
+      allowNull: false
+    } 
+    
+  }, 
+  {
+    timestamps: false,
+    freezeTableName: true
+})
+
+
 const klcv_hdcm = db.define('klcv_hdcm',
 {
   ID_HDCM: {
@@ -807,7 +859,7 @@ klcv_hocphan.hasMany(klcv_hdgd, { foreignKey: 'ID_HDGD'})
 //  db.sync({force: true})
 db.sync()
 module.exports = {
-  User,Data,klcv_bomon,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_hdcm
+  User,Data,klcv_bomon,klcv_chitiet_hdcm,klcv_chitiet_hdkhcn,klcv_chucvu,klcv_giangvien,klcv_giangvienXacnhan,klcv_hdcm
 ,klcv_hdgd
 ,klcv_hdkhcn
 ,klcv_heso
