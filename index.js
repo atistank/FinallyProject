@@ -273,7 +273,7 @@ app.get('/klcv_giangvienXacnhan',(req,res)=> {
 
 app.post('/add_xacnhan',(req,res)=> {
     let {ID_GiangVien,Ho_GiangVien,Ten_GiangVien,ID_BoMon,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
-    User.create({
+    klcv_giangvienXacnhan.create({
         ID_GiangVien,
         Ho_GiangVien,
         Ten_GiangVien,
