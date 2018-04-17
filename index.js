@@ -265,6 +265,11 @@ User.create({
 .catch(() => res.json({ketqua: 0}))
 })
 
+app.get('/klcv_giangvienXacnhan',(req,res)=> {
+    klcv_giangvienXacnhan.findAll()
+    .then(klcv_giangvienXacnhan => res.json({ketqua: 1, data: klcv_giangvienXacnhan}))
+    .catch(() => res.json({ketqua: 0}))
+})
 
 app.post('/add_xacnhan',(req,res)=> {
     let {ID_GiangVien,Ho_GiangVien,Ten_GiangVien,ID_BoMon,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
