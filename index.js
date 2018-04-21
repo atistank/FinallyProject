@@ -284,7 +284,7 @@ app.get('/klcv_giangvienXacnhan',(req,res)=> {
 })
 app.post('/klcv_giangvienXacnhanMotNguoi', (req, res) => {
     const ID_GiangVien = req.body.ID_GiangVien
-    klcv_giangvienXacnhan.findById(userid)
+    klcv_giangvienXacnhan.findById(ID_GiangVien)
       .then(users => res.json({ketQua: 1, data: users}))
       .catch(err => res.json({ketqua: 0, error: err.message} ))
   })
