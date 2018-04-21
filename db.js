@@ -864,7 +864,7 @@ klcv_hdgd.belongsTo(klcv_hocphan, { foreignKey: 'ID_HDGD',"through": {
   unique: false
 },constraints: false}) 
 klcv_hocphan.hasMany(klcv_hdgd, { foreignKey: 'ID_HDGD'})
-
+//
 // klcv_hocphan.belongsTo(klcv_hdgd, { foreignKey: 'ID_HocPhan',"through": {
 //   model: "chitiec",
 //   unique: false
