@@ -27,6 +27,7 @@ const User = db.define('UserData',
     cover: sequelize.STRING,
     quyenhan: sequelize.INTEGER,
     trangthai: sequelize.INTEGER,
+    bomon: sequelize.STRING,
     userid: {
       type: sequelize.STRING,
       primaryKey: true,
@@ -720,7 +721,7 @@ const klcv_chitiet_hdkhcn = db.define('klcv_chitiet_hdkhcn',
       allowNull: false
     },
     ID_KHCN: {
-      type: sequelize.STRING(25),
+      type: sequelize.INTEGER,
       allowNull: false
     },
     
@@ -807,6 +808,20 @@ const klcv_thanhvien = db.define('klcv_thanhvien',
     timestamps: false,
     freezeTableName: true
 })
+
+
+klcv_chitiet_hdkhcn.belongsTo(klcv_hdkhcn, { foreignKey: 'ID_KHCN',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_hdkhcn.hasMany(klcv_chitiet_hdkhcn, { foreignKey: 'ID_KHCN'}) 
+
+klcv_chitiet_hdkhcn.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {
+  model: "chitiec",
+  unique: false
+},constraints: false})
+klcv_giangvien.hasMany(klcv_chitiet_hdkhcn, { foreignKey: 'ID_GiangVien'})
+
 
 
 klcv_chitiet_hdcm.belongsTo(klcv_giangvien, { foreignKey: 'ID_GiangVien',"through": {

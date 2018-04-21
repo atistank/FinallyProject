@@ -99,12 +99,24 @@ app.post('/khoiluongcongviec2', (req, res) => {
             {
                 attributes: ['SoLuong'],
                 model: klcv_chitiet_hdcm,
-                include: [
+                include: 
+                [
                   {
                     model: klcv_hdcm                  
                   }
                 ]
-              }
+            }
+            ,
+            {
+                model: klcv_chitiet_hdkhcn,
+                include: 
+                [
+                  {
+                    model: klcv_hdkhcn                  
+                  }
+                ]
+            }
+
           ]
     }
 )
