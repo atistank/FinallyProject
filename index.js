@@ -276,12 +276,33 @@ User.create({
 .then(() => res.json({ketqua: 1}))
 .catch(() => res.json({ketqua: 0}))
 })
-
+//xac nhan giang vien khoi luong cong viec
 app.get('/klcv_giangvienXacnhan',(req,res)=> {
     klcv_giangvienXacnhan.findAll()
     .then(klcv_giangvienXacnhan => res.json({ketqua: 1, data: klcv_giangvienXacnhan}))
     .catch(() => res.json({ketqua: 0}))
 })
+app.post('/klcv_giangvienXacnhanMotNguoi', (req, res) => {
+    const ID_GiangVien = req.body.ID_GiangVien
+    klcv_giangvienXacnhan.findById(userid)
+      .then(users => res.json({ketQua: 1, data: users}))
+      .catch(err => res.json({ketqua: 0, error: err.message} ))
+  })
+// update
+  app.post('/update_xacnhanGiangVien',(req,res)=>{
+    let {ID_GiangVien,Ho_GiangVien,Ten_GiangVien,ID_BoMon,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
+    klcv_giangvienXacnhan.update({
+        khoiluongcongviec,
+        xacnhanKhoa,
+        xacnhanBomon,
+        xacnhanCanhan,
+        xacnhanPhongDaotao
+            },{ where: {ID_GiangVien},returning: true })
+    .then(row => res.json({ketqua: 1, rowsCount: row[0], data: row[1]  }))
+    .catch(err => res.json({ketqua: 0, error: err.message} ))
+    
+    })//
+
 
 app.post('/add_xacnhan',(req,res)=> {
     let {ID_GiangVien,Ho_GiangVien,Ten_GiangVien,ID_BoMon,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
