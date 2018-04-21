@@ -290,7 +290,7 @@ app.post('/klcv_giangvienXacnhanMotNguoi', (req, res) => {
   })
 // update
   app.post('/update_xacnhanGiangVien',(req,res)=>{
-    let {ID_GiangVien,Ho_GiangVien,Ten_GiangVien,ID_BoMon,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
+    let {ID_GiangVien,khoiluongcongviec,xacnhanKhoa,xacnhanBomon,xacnhanCanhan,xacnhanPhongDaotao} = req.body
     klcv_giangvienXacnhan.update({
         khoiluongcongviec,
         xacnhanKhoa,
